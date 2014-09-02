@@ -11,7 +11,7 @@ OUTDIR = ./
 RCS = $(wildcard *.erl)
 OBJS = $(patsubst %.erl,$(OUTDIR)/%.beam,$(RCS))
 
-all:unqlite_nif.so $(OBJS) test
+all:unqlite_nif.so $(OBJS)
 
 unqlite_nif.so:unqlite/unqlite.c unqlite/unqlite.h unqlite_nif.c
 	gcc -o $@ $^ --shared -fpic $(FLAGS) -Wall -I $(ERL_ROOT)/emulator/beam -I $(ERL_ROOT)/include
